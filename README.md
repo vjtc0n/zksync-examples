@@ -50,5 +50,13 @@ receipt:
 
 verified receipt:
 
+ATTENTION: Need to wait for a long time to verified on zksync rinkeby
+
 ```
+transaction hash on RinkeBy: 0x853cf70ade80f221b10b3b27b7d2a5fc33762b2c5cc5703a286ee1114fe8985b
+```
+
+On Zksync rinkeby
+```
+https://rinkeby.zkscan.io/explorer/accounts/0x19ece7c90e631e9ece2494efab9868c3047d6507
 ```

@@ -28,15 +28,15 @@ async function main(): Promise<void> {
       amount: ethers.utils.parseEther("0.00000000000001"),
     });
 
-    console.log(deposit);
+    console.log("deposit", deposit);
 
     const rept = await deposit.awaitReceipt();
 
-    console.log(rept);
+    console.log("rept", rept);
 
     const verifiedRept = await deposit.awaitVerifyReceipt();
 
-    console.log(verifiedRept);
+    console.log("verifiedRept", verifiedRept);
   } catch (error) {
     console.log(error);
   }
