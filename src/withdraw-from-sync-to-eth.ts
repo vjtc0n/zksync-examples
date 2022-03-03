@@ -22,22 +22,26 @@ async function main(): Promise<void> {
       syncProvider
     );
 
-    const deposit = await syncWallet.depositToSyncFromEthereum({
-      depositTo: syncWallet.address(),
+    const MNEMONIC2 = process.env.MNEMONIC!;
+    const ethWallet2 = ethers.Wallet.fromMnemonic(MNEMONIC2).connect(
+      ethersProvider
+    );
+    const syncWallet2 = await zksync.Wallet.fromEthSigner(
+      ethWallet2,
+      syncProvider
+    );
+
+    const withdraw = await syncWallet2.withdrawFromSyncToEthereum({
+      ethAddress: ethWallet2.address,
       token: "ETH",
-      amount: ethers.utils.parseEther("0.00000000000001"),
+      amount: ethers.utils.parseEther("0.000000000000001"),
     });
 
-    console.log("deposit", deposit);
+    const withdrawReceipt = await withdraw.awaitReceipt();
+    console.log("withdrawReceipt", withdrawReceipt);
 
-    const rept = await deposit.awaitReceipt();
-
-    console.log("rept", rept);
-
-    // This will take a long time to being verified, so we may dont need this
-    const verifiedRept = await deposit.awaitVerifyReceipt();
-
-    console.log("verifiedRept", verifiedRept);
+    const verifiedWithdraw = await withdraw.awaitVerifyReceipt();
+    console.log("verifiedWithdraw", verifiedWithdraw);
   } catch (error) {
     console.log(error);
   }

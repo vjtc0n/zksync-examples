@@ -24,11 +24,14 @@
     "test": "run-p test:*",
     "test:build": "yarn build --noEmit",
     "test:jest": "yarn jest --detectOpenHandles --forceExit",
-    "test:lint": "eslint --ext .js,.ts --ignore-path .gitignore ."
+    "test:lint": "eslint --ext .js,.ts --ignore-path .gitignore .",
+    "deposit": "yarn ts-node src/deposit-to-sync-from-ethereum.ts",
+    "withdraw": "yarn ts-node src/withdraw-from-sync-to-eth.ts",
+    "transfer": "yarn ts-node src/transfer-from-sync-to-eth.ts"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
-    "ethers": "^5.0.26",
-    "zksync": "^0.8.4"
+    "ethers": "5.5.4",
+    "zksync": "0.11.6"
   }
 }

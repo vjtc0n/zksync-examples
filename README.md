@@ -2,7 +2,9 @@
 ## depositToSyncFromEthereum
 
 ```bash
-$ yarn ts-node src/deposit-to-sync-from-ethereum.ts
+$ yarn deposit
+$ yarn transfer
+$ yarn withdraw
 ```
 
 Result 
